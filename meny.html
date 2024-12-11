@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню с выбором опций</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>Добро пожаловать в отель Aurora</h1>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about_us.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="meny.html">Меню</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h1 class="title">Выберите опции из меню</h1>
+        
+        <div class="form-container">
+            <!-- Завтрак -->
+            <section class="menu-section">
+                <h2>Завтрак</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Опция</th>
+                            <th>Выбор</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Кофе</td>
+                            <td><input type="checkbox" name="breakfast" value="Кофе"></td>
+                        </tr>
+                        <tr>
+                            <td>Круассан</td>
+                            <td><input type="checkbox" name="breakfast" value="Круассан"></td>
+                        </tr>
+                        <tr>
+                            <td>Яичница</td>
+                            <td><input type="checkbox" name="breakfast" value="Яичница"></td>
+                        </tr>
+                        <tr>
+                            <td>Тосты</td>
+                            <td><input type="checkbox" name="breakfast" value="Тосты"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Обед -->
+            <section class="menu-section">
+                <h2>Обед</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Опция</th>
+                            <th>Выбор</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Суп</td>
+                            <td><input type="checkbox" name="lunch" value="Суп"></td>
+                        </tr>
+                        <tr>
+                            <td>Салат</td>
+                            <td><input type="checkbox" name="lunch" value="Салат"></td>
+                        </tr>
+                        <tr>
+                            <td>Стейк</td>
+                            <td><input type="checkbox" name="lunch" value="Стейк"></td>
+                        </tr>
+                        <tr>
+                            <td>Паста</td>
+                            <td><input type="checkbox" name="lunch" value="Паста"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Ужин -->
+            <section class="menu-section">
+                <h2>Ужин</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Опция</th>
+                            <th>Выбор</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Рыба</td>
+                            <td><input type="checkbox" name="dinner" value="Рыба"></td>
+                        </tr>
+                        <tr>
+                            <td>Вино</td>
+                            <td><input type="checkbox" name="dinner" value="Вино"></td>
+                        </tr>
+                        <tr>
+                            <td>Десерт</td>
+                            <td><input type="checkbox" name="dinner" value="Десерт"></td>
+                        </tr>
+                        <tr>
+                            <td>Чай</td>
+                            <td><input type="checkbox" name="dinner" value="Чай"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Закуски -->
+            <section class="menu-section">
+                <h2>Закуски</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Опция</th>
+                            <th>Выбор</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Брускетта</td>
+                            <td><input type="checkbox" name="snacks" value="Брускетта"></td>
+                        </tr>
+                        <tr>
+                            <td>Сирные палочки</td>
+                            <td><input type="checkbox" name="snacks" value="Сирные палочки"></td>
+                        </tr>
+                        <tr>
+                            <td>Мясные закуски</td>
+                            <td><input type="checkbox" name="snacks" value="Мясные закуски"></td>
+                        </tr>
+                        <tr>
+                            <td>Оливки</td>
+                            <td><input type="checkbox" name="snacks" value="Оливки"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <button class="btn" onclick="showSelectedOptions()">Заказать</button>
+        </div>
+        
+        <div id="selected-options" class="selection">
+            <h3>Ваш заказ:</h3>
+            <ul id="selection-list"></ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Ваш Ресторан. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function showSelectedOptions() {
+            var selectedOptions = document.querySelectorAll('input[name="breakfast"]:checked, input[name="lunch"]:checked, input[name="dinner"]:checked, input[name="snacks"]:checked');
+            var list = document.getElementById('selection-list');
+            list.innerHTML = ''; // Очищаем предыдущий список
+
+            // Добавляем выбранные опции из чекбоксов
+            selectedOptions.forEach(function(option) {
+                var listItem = document.createElement('li');
+                listItem.textContent = option.value;
+                list.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>
